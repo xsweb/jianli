@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet/less" href="css/index.less"/>
+    <script src='js/less.js'></script>
+    <!--<link rel="stylesheet" href="css/index.css"/>-->
+    <script src='js/jquery.js'></script>
+    <script src='js/jquery.fullPage.min.js'></script>
+    <script src='js/index.js'></script>
+</head>
+<body>
+<div class="wrap">
+    <!-- header-->
+    <div class="header">
+        <div class="top">
+            <ul class="top-title">
+                    <li>首页</li>
+                    <li>关于我</li>
+                    <li>工作经验</li>
+                    <li>专业技能</li>
+                    <li>联系我</li>
+            </ul>
+        </div>
+        <div class="menu">
+            <a href="#page-1">首页</a>
+            <a href="#page-2">关于我</a>
+            <a href="#page-3">工作经验</a>
+            <a href="#page-4">专业技能</a>
+            <a href="#page-5">联系我</a>
+        </div>
+    </div>
+    <!-- full-page-->
+    <div id='full-page'>
+        <!-- page-1-->
+        <div class='section'>
+            <img src="images/head-portrait.jpg" alt=""/>
+        </div>
+        <!-- page-2-->
+        <div class='section'>
+            <ul>
+                <li><span class='fl left'>姓名：</span><span class='fl right'>肖顺</span></li>
+                <li><span class='fl left'>性别：</span><span class='fl right'>男</span></li>
+                <li><span class='fl left'>年龄：</span><span class='fl right'>27</span></li>
+                <li><span class='fl left'>籍贯：</span><span class='fl right'>湖南</span></li>
+                <li><span class='fl left'>现居地：</span><span class='fl right'>北京</span></li>
+                <li><span class='fl left'>名族：</span><span class='fl right'>汉族</span></li>
+                <li><span class='fl left'>婚姻：</span><span class='fl right'>未婚</span></li>
+                <li><span class='fl left'>工作状态：</span><span class='fl right'>离职</span></li>
+                <li><span class='fl left'>学历：</span><span class='fl right'>大专</span></li>
+            </ul>
+        </div>
+        <!-- page-3-->
+        <div class='section'>
+            <dl class="work-experience experience">
+                <dt>工作经历</dt>
+                <dd>1:</dd>
+                <dd>2:</dd>
+                <dd>3:</dd>
+                <dd>4:</dd>
+            </dl>
+            <dl class="project-experience experience">
+                <dt>项目经历</dt>
+                <dd>1:</dd>
+                <dd>2:</dd>
+                <dd>3:</dd>
+                <dd>4:</dd>
+            </dl>
+        </div>
+        <!-- page-4-->
+        <div class='section'>
+            <ul>
+                <li><span>html/css</span></li>
+                <li><span>H5C3</span></li>
+                <li><span>Javascript</span></li>
+                <li><span>Jquery</span></li>
+                <li><span>Bootstrap</span></li>
+                <li><span>AngulaJs</span></li>
+                <li><span>NodeJs</span></li>
+                <li><span>Photoshop</span></li>
+            </ul>
+        </div>
+        <!-- page-5-->
+        <div class='section'>5</div>
+    </div>
+</div>
+
+
+</body>
+<script>
+    $(function(){
+        $('#full-page').fullpage({
+            'scrollingSpeed':'1000',//滚动速度
+            'verticalCentered':false,//内容是否垂直居中；
+            'resize':false,//字体大小是否随窗口变化而变化
+            'anchors':['page-1','page-2','page-3','page-4','page-5'],
+            afterLoad:function(anchorLink,index){
+                setTimeout(function(){
+                    $('.section').eq(index-1).addClass('current').siblings().removeClass('current');
+                    $('.menu a').eq(index-1).addClass('current').siblings().removeClass('current');
+                    $('.top .top-title li').eq(index-1).addClass('current').siblings().removeClass('current');
+                },100)
+            }
+        })
+    })
+
+
+</script>
+</html>
